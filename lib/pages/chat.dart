@@ -3,6 +3,7 @@ import 'package:my_chat/api/chatgpt.dart';
 import 'package:my_chat/enums/message_type.dart';
 import 'package:my_chat/models/message.dart';
 
+/// 聊天对话框
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
 
@@ -25,8 +26,13 @@ class _ChatPageState extends State<ChatPage> {
       ));
     });
 
-    //var data = await ChatGPTApi.chat(text);
-
+    var data = await ChatGPTApi.chat(text);
+    setState(() {
+      messageList.add(Message(
+          text: data,
+          type: MessageType.ai
+      ));
+    });
   }
 
   @override

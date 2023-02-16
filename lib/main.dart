@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:my_chat/pages/home.dart';
-
+import 'package:my_chat/pages/home/home.dart';
+import 'package:my_chat/utils/settings.dart';
 
 void main() {
   runApp(const MainApp());
+  initSettings();
 }
 
 class MainApp extends StatelessWidget {
@@ -18,4 +19,5 @@ class MainApp extends StatelessWidget {
       ),
       home: const HomePage(),
     );
-  }}
+  }
+}
