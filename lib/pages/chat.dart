@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:my_chat/api/chatgpt.dart';
 import 'package:my_chat/enums/message_type.dart';
 import 'package:my_chat/models/message.dart';
+import 'package:my_chat/services/chat_service.dart';
 
-/// 聊天对话框
+/// 聊天页面
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
 
@@ -16,7 +16,7 @@ class _ChatPageState extends State<ChatPage> {
   final TextEditingController _textEditingController = TextEditingController();
 
   void onSend() async {
-    var text = _textEditingController.text;
+    final text = _textEditingController.text;
     _textEditingController.clear();
 
     setState(() {
@@ -26,10 +26,10 @@ class _ChatPageState extends State<ChatPage> {
       ));
     });
 
-    var data = await ChatGPTApi.chat(text);
+    final message = await ChatService.sendMessage(text);
     setState(() {
       messageList.add(Message(
-          text: data,
+          text: message,
           type: MessageType.ai
       ));
     });
