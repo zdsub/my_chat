@@ -6,7 +6,7 @@ import 'package:my_chat/utils/dio.dart';
 class ChatApi {
   static Future<ChatResponse> send(ChatRequest chatRequest) async {
     final response = await dio.post("", data: chatRequest);
+    print(response.data);
     return ChatResponse.fromJson(response.data);
-
   }
 }
