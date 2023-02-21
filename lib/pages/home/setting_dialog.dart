@@ -17,7 +17,7 @@ class SettingDialog extends StatelessWidget {
     return AlertDialog(
       content: Row(
         children: [
-          const Text("密钥"),
+          const Text("密钥："),
           Expanded(
             child: TextField(
               controller: _textEditingController,
