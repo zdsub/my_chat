@@ -13,7 +13,7 @@ class ChatItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: message.type == MessageType.human ? Colors.white : const Color.fromARGB(12, 0, 0, 0)
+        color: message.type == MessageType.human ? Colors.white : const Color.fromARGB(8, 0, 0, 0)
       ),
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
       child: Row(
@@ -36,5 +36,4 @@ class ChatItem extends StatelessWidget {
       )
     );
   }
-
 }
