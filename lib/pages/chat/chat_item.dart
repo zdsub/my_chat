@@ -5,9 +5,9 @@ import '../../models/message.dart';
 
 /// 聊天内容组件
 class ChatItem extends StatelessWidget {
-  Message message;
+  final Message message;
 
-  ChatItem({ super.key, required this.message });
+  const ChatItem({ super.key, required this.message });
 
   @override
   Widget build(BuildContext context) {

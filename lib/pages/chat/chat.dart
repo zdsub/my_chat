@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_chat/enums/message_type.dart';
 import 'package:my_chat/models/message.dart';
 import 'package:my_chat/pages/chat/chat_input.dart';
-import 'package:my_chat/pages/chat/chat_item.dart';
+import 'package:my_chat/pages/chat/chat_message.dart';
 
 /// 聊天页面
 class ChatPage extends StatefulWidget {
@@ -42,15 +42,8 @@ class _ChatPageState extends State<ChatPage> {
       ),
       body: Column(
         children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: messageList.length,
-              itemBuilder: (context, index) => ChatItem(message: messageList[index])
-            )
-          ),
-          ChatInput(
-            onSend: addMessage
-          )
+          ChatMessage(messageList: messageList),
+          ChatInput(onSend: addMessage)
         ]
       )
     );

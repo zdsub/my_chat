@@ -6,6 +6,7 @@ import '../../models/setting.dart';
 import '../../services/chat_service.dart';
 import 'key_not_found_dialog.dart';
 
+// 聊天输入组件
 class ChatInput extends StatefulWidget {
   ValueChanged<Message> onSend;
 
