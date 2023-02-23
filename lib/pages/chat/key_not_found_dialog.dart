@@ -5,23 +5,30 @@ import 'package:my_chat/pages/home/setting_dialog.dart';
 class KeyNotFoundDialog extends StatelessWidget  {
   const KeyNotFoundDialog({ super.key });
 
+  static void show(BuildContext context) {
+    showDialog(context: context, builder: (context) => const KeyNotFoundDialog());
+  }
+
+  void onNo(BuildContext context) {
+    Navigator.of(context).pop();
+  }
+
+  void onYes(BuildContext context) {
+    Navigator.of(context).pop();
+    SettingDialog.show(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      content: const Text("设置密钥后才能发送信息，是否立即设置？"),
+      content: const Text("设置密钥后才能发送消息，是否立即设置？"),
       actions: [
         TextButton(
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => onNo(context),
           child: const Text("否")
         ),
         TextButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-            showDialog(
-              context: context,
-              builder: (context) => SettingDialog()
-            );
-          },
+          onPressed: () => onYes(context),
           child: const Text("是")
         )
       ]

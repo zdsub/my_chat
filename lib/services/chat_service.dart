@@ -1,6 +1,7 @@
 import 'package:my_chat/api/chat_api.dart';
 import 'package:my_chat/models/api/chat_request.dart';
 
+/// 聊天业务
 class ChatService {
   static Future<String> sendMessage(String message) async {
     final chatRequest = ChatRequest(

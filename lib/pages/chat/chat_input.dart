@@ -6,11 +6,11 @@ import '../../models/setting.dart';
 import '../../services/chat_service.dart';
 import 'key_not_found_dialog.dart';
 
-// 聊天输入组件
+/// 聊天输入组件
 class ChatInput extends StatefulWidget {
-  ValueChanged<Message> onSend;
+  final ValueChanged<Message> onSend;
 
-  ChatInput({ super.key, required this.onSend });
+  const ChatInput({ super.key, required this.onSend });
 
   @override
   State<StatefulWidget> createState() => _ChatInputState();
@@ -18,21 +18,18 @@ class ChatInput extends StatefulWidget {
 
 class _ChatInputState extends State<ChatInput> {
   bool sendButtonEnable = false;
-  final TextEditingController _textEditingController = TextEditingController();
+  final TextEditingController textEditingController = TextEditingController();
 
   void onSend(BuildContext context) async {
     // 判断是否设置密钥
     if (Setting.key == null) {
-      showDialog(
-          context: context,
-          builder: (context) => KeyNotFoundDialog()
-      );
+      KeyNotFoundDialog.show(context);
       return;
     }
 
     // 获取并清空文本
-    var text = _textEditingController.text;
-    _textEditingController.clear();
+    var text = textEditingController.text;
+    textEditingController.clear();
     setState(() => sendButtonEnable = false);
 
     // 添加发送消息
@@ -71,7 +68,7 @@ class _ChatInputState extends State<ChatInput> {
         children: [
           Expanded(
             child: TextField(
-              controller: _textEditingController,
+              controller: textEditingController,
               onChanged: onChange,
               decoration: InputDecoration(
                 border: OutlineInputBorder(

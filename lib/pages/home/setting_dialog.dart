@@ -4,14 +4,35 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 /// 配置对话框
 class SettingDialog extends StatelessWidget {
-  final TextEditingController _textEditingController = TextEditingController();
+  final TextEditingController textEditingController = TextEditingController();
 
   SettingDialog({ super.key });
+
+  static void show(BuildContext context) {
+    showDialog(context: context, builder: (context) => SettingDialog());
+  }
+
+  void onCancel(BuildContext context) {
+    Navigator.of(context).pop();
+  }
+
+  void onConfirm(BuildContext context) {
+    final key = textEditingController.text;
+
+    if (key.isNotEmpty && key != Setting.key) {
+      Setting.key = key;
+      SharedPreferences
+        .getInstance()
+        .then((prefs) => prefs.setString("key", key));
+    }
+
+    Navigator.of(context).pop();
+  }
 
   @override
   Widget build(BuildContext context) {
     if (Setting.key != null) {
-      _textEditingController.text = Setting.key!;
+      textEditingController.text = Setting.key!;
     }
 
     return AlertDialog(
@@ -20,30 +41,21 @@ class SettingDialog extends StatelessWidget {
           const Text("密钥："),
           Expanded(
             child: TextField(
-              controller: _textEditingController,
+              controller: textEditingController,
             )
           )
-        ],
+        ]
       ),
       actions: [
         TextButton(
-          onPressed: () => Navigator.of(context).pop(),
+          onPressed: () => onCancel(context),
           child: const Text("取消")
         ),
         TextButton(
-          onPressed: () {
-            final key = _textEditingController.text;
-            if (key.isNotEmpty && key != Setting.key) {
-              Setting.key = key;
-              SharedPreferences
-                  .getInstance()
-                  .then((prefs) => prefs.setString("key", key));
-            }
-            Navigator.of(context).pop();
-          },
+          onPressed: () => onConfirm(context),
           child: const Text("确定")
-        ),
-      ],
+        )
+      ]
     );
   }
 }

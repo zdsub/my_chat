@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../models/message.dart';
 import 'chat_item.dart';
 
-// 聊天信息组件
+/// 聊天信息组件
 class ChatMessage extends StatefulWidget {
   final List<Message> messageList;
 

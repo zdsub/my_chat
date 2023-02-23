@@ -4,7 +4,15 @@ import 'package:my_chat/pages/home/setting_dialog.dart';
 
 /// 主页面
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({ super.key });
+
+  void onChat(BuildContext context) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const ChatPage()));
+  }
+
+  void onSetting(BuildContext context) {
+    SettingDialog.show(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,14 +21,10 @@ class HomePage extends StatelessWidget {
         title: const Text("Chat GPT"),
         actions: [
           IconButton(
-            onPressed: () =>
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const ChatPage())),
+            onPressed: () => onChat(context),
             icon: const Icon(Icons.add)),
           IconButton(
-            onPressed: () => showDialog(
-              context: context,
-              builder: (context) => SettingDialog()
-            ),
+            onPressed: () => onSetting(context),
             icon: const Icon(Icons.settings)),
         ]),
       body: const Center(

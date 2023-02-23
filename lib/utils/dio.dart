@@ -3,6 +3,7 @@ import '../models/setting.dart';
 
 final dio = createDio();
 
+// 创建自定义dio实例
 Dio createDio() {
   final dio = Dio(BaseOptions(
     baseUrl: "https://api.openai.com/v1/completions",
@@ -14,14 +15,11 @@ Dio createDio() {
   return dio;
 }
 
+/// 自定义dio拦截器
 class MyInterceptors extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-
-    if (Setting.key != null) {
-      options.headers["Authorization"] = "Bearer ${Setting.key}";
-    }
-
+    options.headers["Authorization"] = "Bearer ${Setting.key}";
     super.onRequest(options, handler);
   }
 }
