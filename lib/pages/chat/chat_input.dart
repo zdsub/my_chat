@@ -18,7 +18,7 @@ class ChatInput extends StatefulWidget {
 
 class _ChatInputState extends State<ChatInput> {
   bool sendButtonEnable = false;
-  final TextEditingController textEditingController = TextEditingController();
+  final TextEditingController _textEditingController = TextEditingController();
 
   void onSend(BuildContext context) async {
     // 判断是否设置密钥
@@ -28,8 +28,8 @@ class _ChatInputState extends State<ChatInput> {
     }
 
     // 获取并清空文本
-    var text = textEditingController.text;
-    textEditingController.clear();
+    var text = _textEditingController.text;
+    _textEditingController.clear();
     setState(() => sendButtonEnable = false);
 
     // 添加发送消息
@@ -68,7 +68,7 @@ class _ChatInputState extends State<ChatInput> {
         children: [
           Expanded(
             child: TextField(
-              controller: textEditingController,
+              controller: _textEditingController,
               onChanged: onChange,
               decoration: InputDecoration(
                 border: OutlineInputBorder(

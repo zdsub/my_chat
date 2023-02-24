@@ -13,6 +13,7 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
+  final GlobalKey<ChatMessageState> _globalKey = GlobalKey();
   final List<Message> messageList = [
     Message(text: "你好1", type: MessageType.human),
     Message(text: "Hello1", type: MessageType.ai),
@@ -32,6 +33,7 @@ class _ChatPageState extends State<ChatPage> {
 
   void addMessage(Message message) {
     setState(() => messageList.add(message));
+    _globalKey.currentState?.scrollToEnd();
   }
 
   @override
@@ -42,7 +44,7 @@ class _ChatPageState extends State<ChatPage> {
       ),
       body: Column(
         children: [
-          ChatMessage(messageList: messageList),
+          ChatMessage(messageList: messageList, key: _globalKey),
           ChatInput(onSend: addMessage)
         ]
       )
