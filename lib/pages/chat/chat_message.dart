@@ -23,19 +23,30 @@ class ChatMessageState extends State<ChatMessage> {
     });
   }
 
+  /// 隐藏键盘
+  void hideKeyboard() {
+    FocusManager.instance.primaryFocus?.unfocus();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Stack(
-        children: [
-          ListView.builder(
-            reverse: true,
-            shrinkWrap: true,
-            controller: _scrollController,
-            itemCount: widget.messageList.length,
-            itemBuilder: (context, index) => ChatItem(message: widget.messageList[index])
+      child: GestureDetector(
+        onTap: hideKeyboard,
+        child: Container(
+          decoration: const BoxDecoration(),
+          child: Stack(
+            children: [
+              ListView.builder(
+                reverse: true,
+                shrinkWrap: true,
+                controller: _scrollController,
+                itemCount: widget.messageList.length,
+                itemBuilder: (context, index) => ChatItem(message: widget.messageList[index])
+              )
+            ]
           )
-        ]
+        )
       )
     );
   }

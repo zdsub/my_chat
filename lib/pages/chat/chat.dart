@@ -22,7 +22,7 @@ class _ChatPageState extends State<ChatPage> {
     Message(text: "Hello5", type: MessageType.ai),
     Message(text: "你好5", type: MessageType.human),
     Message(text: "Hello4", type: MessageType.ai),
-    Message(text: "你好5", type: MessageType.human),
+    Message(text: "你好4", type: MessageType.human),
     Message(text: "Hello3", type: MessageType.ai),
     Message(text: "你好3", type: MessageType.human),
     Message(text: "Hello2", type: MessageType.ai),
