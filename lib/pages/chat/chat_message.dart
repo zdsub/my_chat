@@ -16,33 +16,26 @@ class ChatMessage extends StatefulWidget {
 class ChatMessageState extends State<ChatMessage> {
   final ScrollController _scrollController = ScrollController();
 
-  @override
-  void initState() {
-    super.initState();
-
-  }
-
   /// 滑动到底部
   void scrollToEnd() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _scrollController.animateTo(
-        _scrollController.position.maxScrollExtent,
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeOut,
-      );
+      _scrollController.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear,);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
-    });
     return Expanded(
-      child: ListView.builder(
-        controller: _scrollController,
-        itemCount: widget.messageList.length,
-        itemBuilder: (context, index) => ChatItem(message: widget.messageList[index])
+      child: Stack(
+        children: [
+          ListView.builder(
+            reverse: true,
+            shrinkWrap: true,
+            controller: _scrollController,
+            itemCount: widget.messageList.length,
+            itemBuilder: (context, index) => ChatItem(message: widget.messageList[index])
+          )
+        ]
       )
     );
   }

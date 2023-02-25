@@ -15,24 +15,24 @@ class ChatPage extends StatefulWidget {
 class _ChatPageState extends State<ChatPage> {
   final GlobalKey<ChatMessageState> _globalKey = GlobalKey();
   final List<Message> messageList = [
-    Message(text: "你好1", type: MessageType.human),
-    Message(text: "Hello1", type: MessageType.ai),
-    Message(text: "你好2", type: MessageType.human),
-    Message(text: "Hello2", type: MessageType.ai),
-    Message(text: "你好3", type: MessageType.human),
-    Message(text: "Hello3", type: MessageType.ai),
-    Message(text: "你好4", type: MessageType.human),
+    Message(text: "Hello7", type: MessageType.ai),
+    Message(text: "你好7", type: MessageType.human),
+    Message(text: "Hello6", type: MessageType.ai),
+    Message(text: "你好6", type: MessageType.human),
+    Message(text: "Hello5", type: MessageType.ai),
+    Message(text: "你好5", type: MessageType.human),
     Message(text: "Hello4", type: MessageType.ai),
     Message(text: "你好5", type: MessageType.human),
-    Message(text: "Hello5", type: MessageType.ai),
-    Message(text: "你好6", type: MessageType.human),
-    Message(text: "Hello6", type: MessageType.ai),
-    Message(text: "你好7", type: MessageType.human),
-    Message(text: "Hello7", type: MessageType.ai)
+    Message(text: "Hello3", type: MessageType.ai),
+    Message(text: "你好3", type: MessageType.human),
+    Message(text: "Hello2", type: MessageType.ai),
+    Message(text: "你好2", type: MessageType.human),
+    Message(text: "Hello1", type: MessageType.ai),
+    Message(text: "你好1", type: MessageType.human),
   ];
 
   void addMessage(Message message) {
-    setState(() => messageList.add(message));
+    setState(() => messageList.insert(0, message));
     _globalKey.currentState?.scrollToEnd();
   }
 
