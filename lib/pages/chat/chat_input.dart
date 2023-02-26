@@ -69,21 +69,32 @@ class _ChatInputState extends State<ChatInput> {
           Expanded(
             child: TextField(
               controller: _textEditingController,
+              maxLength: 255,
               onChanged: onChange,
               decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30)
+                counterText: "",
+                contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Colors.blue),
+                  borderRadius: BorderRadius.circular(30),
                 )
               )
             )
           ),
           Container(
-            margin: const EdgeInsets.only(left: 8),
+            margin: const EdgeInsets.only(left: 4),
             child: ElevatedButton(
               style: ButtonStyle(
                 shape: MaterialStateProperty.all(RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)
-                ))
+                )),
+                backgroundColor: MaterialStateProperty.all(Colors.blue[sendButtonEnable ? 500 : 200]),
+                foregroundColor: MaterialStateProperty.all(Colors.white),
+                elevation: MaterialStateProperty.all(0)
               ),
               onPressed: sendButtonEnable ? () => onSend(context) : null,
               child: const Text("发送")
