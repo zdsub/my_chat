@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_chat/pages/setting/setting_container.dart';
+import 'package:my_chat/pages/setting/setting_item.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../models/setting.dart';
@@ -21,38 +23,13 @@ class _SettingState extends State<SettingPage> {
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         child: Column(
           children: [
-            GestureDetector(
-              onTap: () async {
+            SettingContainer(
+              child: SettingItem(title: "密钥", value: Setting.key ?? "", onTap: () async{
                 final result = await showDialog(context: context, builder: (context) => _SettingDialog());
                 if (result) {
                   setState(() {});
                 }
-              },
-              child: Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.grey[300]!
-                  ),
-                    borderRadius: BorderRadius.circular(8)
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text("密钥", style: TextStyle(fontSize: 16)),
-                    Row(
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.only(right: 8),
-                          constraints: const BoxConstraints(maxWidth: 150),
-                          child: Text(Setting.key!, style: TextStyle(color: Colors.grey[500], fontSize: 14), maxLines: 1)
-                        ),
-                        Icon(Icons.arrow_forward_ios, color: Colors.grey[500], size: 14)
-                      ]
-                    )
-                  ]
-                )
-              )
+              })
             )
           ]
         )
