@@ -20,9 +20,9 @@ class _ChatInputState extends State<ChatInput> {
   bool sendButtonEnable = false;
   final TextEditingController _textEditingController = TextEditingController();
 
-  void onSend(BuildContext context) async {
+  void onSend() async {
     // 判断是否设置密钥
-    if (Setting.key == null) {
+    if (Setting.key.isEmpty) {
       KeyNotFoundDialog.show(context);
       return;
     }
@@ -96,7 +96,7 @@ class _ChatInputState extends State<ChatInput> {
                 foregroundColor: MaterialStateProperty.all(Colors.white),
                 elevation: MaterialStateProperty.all(0)
               ),
-              onPressed: sendButtonEnable ? () => onSend(context) : null,
+              onPressed: sendButtonEnable ? onSend : null,
               child: const Text("发送")
             )
           )

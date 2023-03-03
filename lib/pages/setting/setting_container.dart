@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// 设置项容器
+/// 设置项容器组件
 class SettingContainer extends StatelessWidget {
   final Widget child;
 

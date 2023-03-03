@@ -10,6 +10,9 @@ void initSettings() {
 }
 
 /// 真·初始化设置信息
-void _initSettings(prefs) {
-  Setting.key = prefs.getString("key");
+void _initSettings(SharedPreferences prefs) {
+  final key = prefs.getString("key");
+  if (key != null) {
+    Setting.key = key;
+  }
 }

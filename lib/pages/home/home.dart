@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_chat/pages/chat/chat.dart';
-import 'package:my_chat/pages/home/setting_dialog.dart';
 import 'package:my_chat/pages/setting/setting.dart';
 
 /// 主页面

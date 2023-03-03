@@ -19,7 +19,7 @@ class ChatMessageState extends State<ChatMessage> {
   /// 滑动到底部
   void scrollToEnd() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _scrollController.animateTo(0, duration: const Duration(milliseconds: 300), curve: Curves.linear,);
+      _scrollController.animateTo(0, duration: const Duration(milliseconds: 100), curve: Curves.linear,);
     });
   }
 
