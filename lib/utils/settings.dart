@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../models/setting.dart';
+import '../settings/setting.dart';
 
 /// 初始化设置信息
 void initSettings() {
@@ -13,6 +13,6 @@ void initSettings() {
 void _initSettings(SharedPreferences prefs) {
   final key = prefs.getString("key");
   if (key != null) {
-    Setting.key = key;
+    settings.key = key;
   }
 }

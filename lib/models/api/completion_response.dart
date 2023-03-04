@@ -1,5 +1,5 @@
 /// ChatGPT响应数据
-class ChatResponse {
+class CompletionResponse {
   String id;
   String object;
   int created;
@@ -7,7 +7,7 @@ class ChatResponse {
   List<_Choices> choices;
   _Usage usage;
 
-  ChatResponse.fromJson(Map<String, dynamic> json) :
+  CompletionResponse.fromJson(Map<String, dynamic> json) :
     id = json["id"],
     object = json["object"],
     created = json["created"],

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../enums/message_type.dart';
 import '../../models/message.dart';
-import '../../models/setting.dart';
-import '../../services/chat_service.dart';
+import '../../settings/setting.dart';
+import '../../services/completion_service.dart';
 import 'key_not_found_dialog.dart';
 
 /// 聊天输入组件
@@ -22,7 +22,7 @@ class _ChatInputState extends State<ChatInput> {
 
   void onSend() async {
     // 判断是否设置密钥
-    if (Setting.key.isEmpty) {
+    if (settings.key.isEmpty) {
       KeyNotFoundDialog.show(context);
       return;
     }
@@ -39,7 +39,7 @@ class _ChatInputState extends State<ChatInput> {
     ));
 
     // 添加回复消息
-    text = await ChatService.sendMessage(text);
+    text = await completionService.sendMessage(text);
     widget.onSend(Message(
       text: text,
       type: MessageType.ai

@@ -3,7 +3,7 @@ import 'package:my_chat/widgets/set_key_dialog.dart';
 import 'package:my_chat/pages/setting/setting_container.dart';
 import 'package:my_chat/pages/setting/setting_item.dart';
 
-import '../../models/setting.dart';
+import '../../settings/setting.dart';
 
 /// 设置页面
 class SettingPage extends StatefulWidget {
@@ -34,7 +34,7 @@ class _SettingState extends State<SettingPage> {
             SettingContainer(
               child: SettingItem(
                 title: "密钥",
-                value: Setting.key,
+                value: settings.key,
                 onTap: setKey
               )
             )
