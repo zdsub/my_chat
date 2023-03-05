@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import '../settings/setting.dart';
+import '../settings/settings.dart';
 
 final dio = createDio();
 

@@ -3,7 +3,7 @@ import 'package:my_chat/widgets/set_key_dialog.dart';
 import 'package:my_chat/pages/setting/setting_container.dart';
 import 'package:my_chat/pages/setting/setting_item.dart';
 
-import '../../settings/setting.dart';
+import '../../settings/settings.dart';
 
 /// 设置页面
 class SettingPage extends StatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:my_chat/api/chat_api.dart';
 import 'package:my_chat/models/api/completion_request.dart';
-import 'package:my_chat/settings/setting.dart';
+import 'package:my_chat/settings/settings.dart';
 
 final completionService = CompletionService();
 

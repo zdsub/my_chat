@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_chat/settings/setting.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:my_chat/settings/settings.dart';
 
 /// 设置密钥对话框
 class SetKeyDialog extends StatelessWidget {
@@ -17,15 +16,7 @@ class SetKeyDialog extends StatelessWidget {
   }
 
   void onConfirm(BuildContext context) {
-    final key = _textEditingController.text;
-
-    if (key != settings.key) {
-      settings.key = key;
-      SharedPreferences
-        .getInstance()
-        .then((prefs) => prefs.setString("key", key));
-    }
-
+    settings.key = _textEditingController.text;
     Navigator.of(context).pop(true);
   }
 

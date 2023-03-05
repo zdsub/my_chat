@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_chat/pages/home/home.dart';
-import 'package:my_chat/utils/settings.dart';
+import 'package:my_chat/settings/settings.dart';
 
 void main() {
   runApp(const MainApp());

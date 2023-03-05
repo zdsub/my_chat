@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../enums/message_type.dart';
 import '../../models/message.dart';
-import '../../settings/setting.dart';
+import '../../settings/settings.dart';
 import '../../services/completion_service.dart';
 import 'key_not_found_dialog.dart';
 
