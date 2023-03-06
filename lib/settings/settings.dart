@@ -26,8 +26,65 @@ class Setting {
 
 /// Completions配置信息
 class CompletionSetting {
-  String model = "text-davinci-003";
-  int? max_tokens;
-  double? temperature;
-  double? top_p;
+  String _model = _sharedPreferences.getString("completion.model") ?? "text-davinci-003";
+  int _max_tokens = _sharedPreferences.getInt("completion.max_tokens") ?? 256;
+  double _temperature = _sharedPreferences.getDouble("completion.temperature") ?? 0.9;
+  double _top_p = _sharedPreferences.getDouble("completion.top_p") ?? 1;
+  double _frequency_penalty = _sharedPreferences.getDouble("completion.frequency_penalty") ?? 0.0;
+  double _presence_penalty = _sharedPreferences.getDouble("completion.presence_penalty") ?? 0.6;
+  // List<String> _stop = [" Human:", " AI:"];
+
+  String get model => _model;
+
+  set model(String value) {
+    if (_model != value) {
+      _model = value;
+      _sharedPreferences.setString("completion.model", value);
+    }
+  }
+
+  int get max_tokens => _max_tokens;
+
+  set max_tokens(int value) {
+    if (_max_tokens != value) {
+      _max_tokens = value;
+      _sharedPreferences.setInt("completion.max_tokens", value);
+    }
+  }
+
+  double get temperature => _temperature;
+
+  set temperature(double value) {
+    if (_temperature != value) {
+      _temperature = value;
+      _sharedPreferences.setDouble("completion.temperature", value);
+    }
+  }
+
+  double get top_p => _top_p;
+
+  set top_p(double value) {
+    if (_top_p != value) {
+      _top_p = value;
+      _sharedPreferences.setDouble("completion.top_p", value);
+    }
+  }
+
+  double get frequency_penalty => _frequency_penalty;
+
+  set frequency_penalty(double value) {
+    if (_frequency_penalty != value) {
+      _frequency_penalty = value;
+      _sharedPreferences.setDouble("completion.frequency_penalty", value);
+    }
+  }
+
+  double get presence_penalty => _presence_penalty;
+
+  set presence_penalty(double value) {
+    if (_presence_penalty != value) {
+      _presence_penalty = value;
+      _sharedPreferences.setDouble("completion.presence_penalty", value);
+    }
+  }
 }

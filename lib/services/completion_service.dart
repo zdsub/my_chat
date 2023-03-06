@@ -8,11 +8,13 @@ final completionService = CompletionService();
 class CompletionService {
   Future<String> sendMessage(String message) async {
     final completionRequest = CompletionRequest(
-        prompt: message,
-        max_tokens: settings.completion.max_tokens,
-        model: settings.completion.model,
-        temperature: settings.completion.temperature,
-        top_p: settings.completion.top_p
+      prompt: message,
+      max_tokens: settings.completion.max_tokens,
+      model: settings.completion.model,
+      temperature: settings.completion.temperature,
+      top_p: settings.completion.top_p,
+      frequency_enalty: settings.completion.frequency_penalty,
+      presence_penalty: settings.completion.presence_penalty
     );
     final completionResponse = await chatApi.completions(completionRequest);
     return completionResponse.choices[0].text.trim();
