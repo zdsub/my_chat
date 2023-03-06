@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_chat/widgets/set_key_dialog.dart';
-import 'package:my_chat/pages/setting/setting_container.dart';
-import 'package:my_chat/pages/setting/setting_item.dart';
-
-import '../../settings/settings.dart';
+import 'package:my_chat/pages/setting/containers/about_setting_container.dart';
+import 'package:my_chat/pages/setting/containers/completion_setting_container.dart';
+import 'package:my_chat/pages/setting/containers/key_setting_container.dart';
 
 /// 设置页面
 class SettingPage extends StatefulWidget {
@@ -14,13 +12,6 @@ class SettingPage extends StatefulWidget {
 }
 
 class _SettingState extends State<SettingPage> {
-  void setKey() async {
-    final result = await SetKeyDialog.show(context);
-    if (result) {
-      setState(() {});
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,16 +19,12 @@ class _SettingState extends State<SettingPage> {
         title: const Text("设置"),
       ),
       body: Container(
-        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
-          children: [
-            SettingContainer(
-              child: SettingItem(
-                title: "密钥",
-                value: settings.key,
-                onTap: setKey
-              )
-            )
+          children: const [
+            KeySettingContainer(),
+            CompletionSettingContainer(),
+            AboutSettingContainer()
           ]
         )
       )

@@ -33,6 +33,7 @@ class CompletionSetting {
   double _frequency_penalty = _sharedPreferences.getDouble("completion.frequency_penalty") ?? 0.0;
   double _presence_penalty = _sharedPreferences.getDouble("completion.presence_penalty") ?? 0.6;
   // List<String> _stop = [" Human:", " AI:"];
+  // int _best_of = 1;
 
   String get model => _model;
 
