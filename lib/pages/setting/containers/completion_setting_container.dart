@@ -3,6 +3,8 @@ import 'package:my_chat/pages/setting/widgets/setting_container.dart';
 import 'package:my_chat/pages/setting/widgets/setting_item.dart';
 import 'package:my_chat/settings/settings.dart';
 
+import '../../../widgets/input_dialog/text_select_dialog.dart';
+
 /// Completions配置项组件
 class CompletionSettingContainer extends StatefulWidget {
   const CompletionSettingContainer({ super.key });
@@ -12,6 +14,22 @@ class CompletionSettingContainer extends StatefulWidget {
 }
 
 class _CompletionSettingContainerState extends State<CompletionSettingContainer> {
+  void setModel() async {
+    final model = await showDialog(
+      context: context,
+      builder: (context) =>
+        TextSelectDialog(
+          title: "model",
+          value: settings.completion.model,
+          selectionList: CompletionSetting.modelList
+        )
+    );
+
+    if (model != null && model != settings.completion.model) {
+      setState(() => settings.completion.model = model);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SettingContainer(
@@ -19,7 +37,7 @@ class _CompletionSettingContainerState extends State<CompletionSettingContainer>
         SettingItem(
           title: "model",
           value: settings.completion.model,
-          onTap: () {}
+          onTap: setModel
         ),
         SettingItem(
           title: "max_tokens",

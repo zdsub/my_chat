@@ -26,6 +26,8 @@ class Setting {
 
 /// Completions配置信息
 class CompletionSetting {
+  static const List<String> modelList = ["text-davinci-003", "text-davinci-002", "code-davinci-002"];
+
   String _model = _sharedPreferences.getString("completion.model") ?? "text-davinci-003";
   int _max_tokens = _sharedPreferences.getInt("completion.max_tokens") ?? 256;
   double _temperature = _sharedPreferences.getDouble("completion.temperature") ?? 0.9;
