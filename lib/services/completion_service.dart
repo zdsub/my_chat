@@ -14,7 +14,9 @@ class CompletionService {
       temperature: settings.completion.temperature,
       top_p: settings.completion.top_p,
       frequency_enalty: settings.completion.frequency_penalty,
-      presence_penalty: settings.completion.presence_penalty
+      presence_penalty: settings.completion.presence_penalty,
+      stop: settings.completion.stop.isNotEmpty ? settings.completion.stop : null,
+      best_of: settings.completion.best_of
     );
     final completionResponse = await chatApi.completions(completionRequest);
     return completionResponse.choices[0].text.trim();

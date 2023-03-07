@@ -32,8 +32,8 @@ class CompletionSetting {
   double _top_p = _sharedPreferences.getDouble("completion.top_p") ?? 1;
   double _frequency_penalty = _sharedPreferences.getDouble("completion.frequency_penalty") ?? 0.0;
   double _presence_penalty = _sharedPreferences.getDouble("completion.presence_penalty") ?? 0.6;
-  // List<String> _stop = [" Human:", " AI:"];
-  // int _best_of = 1;
+  List<String> _stop = _sharedPreferences.getStringList("completion.stop") ?? [];
+  int _best_of = _sharedPreferences.getInt("completion.best_of") ?? 1;
 
   String get model => _model;
 
@@ -86,6 +86,24 @@ class CompletionSetting {
     if (_presence_penalty != value) {
       _presence_penalty = value;
       _sharedPreferences.setDouble("completion.presence_penalty", value);
+    }
+  }
+
+  List<String> get stop => _stop;
+
+  set stop(List<String> value) {
+    if (_stop != value) {
+      _stop = value;
+      _sharedPreferences.setStringList("completion.stop", value);
+    }
+  }
+
+  int get best_of => _best_of;
+
+  set best_of(int value) {
+    if (_best_of != value) {
+      _best_of = value;
+      _sharedPreferences.setInt("completion.best_of", value);
     }
   }
 }

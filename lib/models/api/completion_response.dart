@@ -1,4 +1,4 @@
-/// ChatGPT响应数据
+/// Completions响应模型
 class CompletionResponse {
   String id;
   String object;

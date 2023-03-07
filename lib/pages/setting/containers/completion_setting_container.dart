@@ -46,6 +46,16 @@ class _CompletionSettingContainerState extends State<CompletionSettingContainer>
           value: settings.completion.presence_penalty.toString(),
           onTap: () {}
         ),
+        SettingItem(
+          title: "stop",
+          value: settings.completion.stop.toString(),
+          onTap: () {}
+        ),
+        SettingItem(
+          title: "best_of",
+          value: settings.completion.best_of.toString(),
+          onTap: () {}
+        ),
         // SettingItem(
         //   title: "重置配置",
         //   onTap: () {}
