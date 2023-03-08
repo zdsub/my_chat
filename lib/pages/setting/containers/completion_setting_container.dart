@@ -25,7 +25,7 @@ class _CompletionSettingContainerState extends State<CompletionSettingContainer>
         )
     );
 
-    if (model != null && model != settings.completion.model) {
+    if (model != null) {
       setState(() => settings.completion.model = model);
     }
   }
@@ -33,6 +33,7 @@ class _CompletionSettingContainerState extends State<CompletionSettingContainer>
   @override
   Widget build(BuildContext context) {
     return SettingContainer(
+      title: "Completion",
       children: [
         SettingItem(
           title: "model",
@@ -74,10 +75,10 @@ class _CompletionSettingContainerState extends State<CompletionSettingContainer>
           value: settings.completion.best_of.toString(),
           onTap: () {}
         ),
-        // SettingItem(
-        //   title: "重置配置",
-        //   onTap: () {}
-        // )
+        SettingItem(
+          title: "恢复默认",
+          onTap: () {}
+        )
       ]
     );
   }

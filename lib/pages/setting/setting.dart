@@ -18,14 +18,16 @@ class _SettingState extends State<SettingPage> {
       appBar: AppBar(
         title: const Text("设置"),
       ),
-      body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          children: const [
-            KeySettingContainer(),
-            CompletionSettingContainer(),
-            AboutSettingContainer()
-          ]
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: const [
+              KeySettingContainer(),
+              CompletionSettingContainer(),
+              AboutSettingContainer()
+            ]
+          )
         )
       )
     );
