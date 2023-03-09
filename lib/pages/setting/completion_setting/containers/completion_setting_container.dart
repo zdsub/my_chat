@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:my_chat/pages/setting/widgets/setting_container.dart';
-import 'package:my_chat/pages/setting/widgets/setting_item.dart';
+import 'package:my_chat/pages/setting/setting/widgets/setting_container.dart';
+import 'package:my_chat/pages/setting/setting/widgets/setting_item.dart';
+import 'package:my_chat/settings/mode/completion_setting.dart';
 import 'package:my_chat/settings/settings.dart';
+import 'package:my_chat/widgets/input_dialog/text_select_dialog.dart';
 
-import '../../../settings/mode/completion_setting.dart';
-import '../../../widgets/input_dialog/text_select_dialog.dart';
-
-/// Completions配置项组件
 class CompletionSettingContainer extends StatefulWidget {
   const CompletionSettingContainer({ super.key });
 
@@ -34,8 +32,7 @@ class _CompletionSettingContainerState extends State<CompletionSettingContainer>
   @override
   Widget build(BuildContext context) {
     return SettingContainer(
-      title: "Completion",
-      children: [
+      items: [
         SettingItem(
           title: "model",
           value: settings.completion.model,
@@ -74,10 +71,6 @@ class _CompletionSettingContainerState extends State<CompletionSettingContainer>
         SettingItem(
           title: "best_of",
           value: settings.completion.best_of.toString(),
-          onTap: () {}
-        ),
-        SettingItem(
-          title: "恢复默认",
           onTap: () {}
         )
       ]

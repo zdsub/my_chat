@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_chat/pages/about/about.dart';
-import 'package:my_chat/pages/setting/widgets/setting_container.dart';
-import 'package:my_chat/pages/setting/widgets/setting_item.dart';
+import 'package:my_chat/pages/setting/setting/widgets/setting_container.dart';
+import 'package:my_chat/pages/setting/setting/widgets/setting_item.dart';
 
-/// 关于设置项组件
 class AboutSettingContainer extends StatelessWidget {
   const AboutSettingContainer({ super.key });
 
@@ -14,7 +13,7 @@ class AboutSettingContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SettingContainer(
-      children: [
+      items: [
         SettingItem(
           title: "关于",
           onTap: () => onAbout(context)

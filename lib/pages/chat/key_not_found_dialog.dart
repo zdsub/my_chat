@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_chat/widgets/set_key_dialog.dart';
+import 'package:my_chat/pages/setting/setting/setting.dart';
 
 /// 未设置密钥对话框
 class KeyNotFoundDialog extends StatelessWidget  {
@@ -15,7 +15,7 @@ class KeyNotFoundDialog extends StatelessWidget  {
 
   void onYes(BuildContext context) {
     Navigator.of(context).pop();
-    SetKeyDialog.show(context);
+    SettingPage.show(context);
   }
 
   @override

@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 class SettingItem extends StatelessWidget {
   final String title;
   final String? value;
-  final void Function()? onTap;
+  final void Function() onTap;
 
-  const SettingItem({ super.key, required this.title, this.value, this.onTap });
+  const SettingItem({ super.key, required this.title, this.value, required this.onTap });
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class SettingItem extends StatelessWidget {
                     maxLines: 1
                   )
                 ),
-                if (onTap != null) Icon(
+                Icon(
                   Icons.arrow_forward_ios,
                   color: Colors.grey[500],
                   size: 14

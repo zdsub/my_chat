@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_chat/pages/chat/chat.dart';
-import 'package:my_chat/pages/setting/setting.dart';
+import 'package:my_chat/pages/setting/setting/setting.dart';
 
 /// 主页面
 class HomePage extends StatelessWidget {
@@ -11,8 +11,7 @@ class HomePage extends StatelessWidget {
   }
 
   void onSetting(BuildContext context) {
-    // SettingDialog.show(context);
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingPage()));
+    SettingPage.show(context);
   }
 
   @override
