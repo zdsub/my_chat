@@ -16,7 +16,7 @@ class KeySettingContainer extends StatefulWidget {
 class _KeySettingContainerState extends State<KeySettingContainer> {
   void setKey() async {
     final result = await SetKeyDialog.show(context);
-    if (result) {
+    if (result != null) {
       setState(() {});
     }
   }

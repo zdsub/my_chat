@@ -3,6 +3,7 @@ import 'package:my_chat/pages/setting/widgets/setting_container.dart';
 import 'package:my_chat/pages/setting/widgets/setting_item.dart';
 import 'package:my_chat/settings/settings.dart';
 
+import '../../../settings/mode/completion_setting.dart';
 import '../../../widgets/input_dialog/text_select_dialog.dart';
 
 /// Completions配置项组件
